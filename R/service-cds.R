@@ -88,6 +88,10 @@ cds_service <- R6::R6Class("ecmwfr_cds",
         encode = "json"
       )
 
+      if (httr::http_error(response)) {
+        return(self)
+      }
+
       ct <- httr::content(response)
       private$status <- ct$state
 
