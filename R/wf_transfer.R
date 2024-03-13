@@ -167,7 +167,7 @@ wf_transfer <- function(
     # if completed / should not happen but still there
     if ("completed" == ct$state) {
       # download file
-      httr::GET(ct$location,
+      httr::GET(ct$result[[1]]$location,
                 httr::write_disk(tmp_file, overwrite = TRUE),
                 httr::progress())
 
